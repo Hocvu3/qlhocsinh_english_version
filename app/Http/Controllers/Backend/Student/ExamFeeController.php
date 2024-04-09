@@ -37,7 +37,7 @@ class ExamFeeController extends Controller
         $html['thsource'] .= '<th>Exam Fee</th>';
         $html['thsource'] .= '<th>Discount </th>';
         $html['thsource'] .= '<th>Student Fee </th>';
-        $html['thsource'] .= '<th>Action</th>';
+        $html['thsource'] .= '<th>Note</th>';
 
 
         foreach ($allStudent as $key => $v) {
@@ -57,7 +57,7 @@ class ExamFeeController extends Controller
 
             $html[$key]['tdsource'] .='<td>'.$finalfee.'$'.'</td>';
             $html[$key]['tdsource'] .='<td>';
-            $html[$key]['tdsource'] .='<a class="btn btn-sm btn-'.$color.'" title="PaySlip" target="_blanks" href="'.route("student.monthly.fee.payslip").'?class_id='.$v->class_id.'&student_id='.$v->student_id.'&exam_type_id='.$request->exam_type_id.'">Fee Slip</a>';
+            //$html[$key]['tdsource'] .='<a class="btn btn-sm btn-'.$color.'" title="PaySlip" target="_blanks" href="'.route("student.monthly.fee.payslip").'?class_id='.$v->class_id.'&student_id='.$v->student_id.'&exam_type_id='.$request->exam_type_id.'">Fee Slip</a>';
             $html[$key]['tdsource'] .= '</td>';
 
         }  
