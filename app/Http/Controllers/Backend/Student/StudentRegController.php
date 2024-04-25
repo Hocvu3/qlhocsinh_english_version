@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountStudentFee;
 use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
@@ -164,6 +165,24 @@ class StudentRegController extends Controller
     }
     public function StudentRegDelete($student_id){
         $data = User::find($student_id);
+        // Tìm id của bản ghi AssignStudent
+        $assignstudent = AssignStudent::where('student_id', $student_id)->first();
+
+        if ($assignstudent) {
+            // Lấy id của bản ghi AssignStudent
+            $assignStudentId = $assignstudent->id;
+            
+            // Xóa các bản ghi trong bảng DiscountStudent dựa trên id của AssignStudent
+            DiscountStudent::where('assign_student_id', $assignStudentId)->delete();
+            
+            // Xóa bản ghi trong bảng AssignStudent
+            $assignstudent->delete();
+            
+            // Xóa các bản ghi trong bảng AccountStudentFee dựa trên student_id
+            AccountStudentFee::where('student_id', $student_id)->delete();
+            $assignstudent->delete();
+        }
+
         $data->delete();
         $notificaation = array(
             'message'=>'Student deleted successfully',

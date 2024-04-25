@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountStudentFee;
+use App\Models\AssignStudent;
+use App\Models\DiscountStudent;
 use Illuminate\Http\Request;
 use App\Models\User;
 class UserController extends Controller
@@ -56,7 +59,6 @@ class UserController extends Controller
     }
     public function UserDelete($id){
         $user = User::find($id);
-        $user->student()->delete();
         $user->delete();
 
         $notificaation = array(

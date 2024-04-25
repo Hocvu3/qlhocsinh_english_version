@@ -21,7 +21,8 @@
       
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">  
-		  
+        <li class="header nav-small-cap">Academy Section</li>
+
 		<li>
       <a href="{{route('dashboard')}}">
         <i data-feather="home"></i>
@@ -64,6 +65,20 @@
             <li><a href="{{route('designation.view')}}"><i class="ti-more"></i>Designation Manage</a></li>
           </ul>
         </li>
+        <li class="treeview {{($prefix == '/reports'||$prefix == '/accounts')?'active':''}}">
+          <a href="#">
+            <i data-feather="dollar-sign"></i>
+            <span>Profit Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('amount.paid.view')}}"><i class="ti-more"></i>Student Paid Amount</a></li>
+            <li><a href="{{route('academy.profit.view')}}"><i class="ti-more"></i>Academy Profit Report</a></li>
+          </ul>
+        </li>
+        <li class="header nav-small-cap">Class Section</li>
         <li class="treeview {{($prefix == '/students')?'active':''}}">
           <a href="#">
             <i data-feather="users"></i> <span>Student Management</span>
@@ -72,7 +87,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('student.registration.view')}}"><i class="ti-more"></i>Student Registration</a></li>
+            <li><a href="{{route('student.registration.view')}}"><i class="ti-more"></i>Student View</a></li>
             <li><a href="{{route('registration.fee.view')}}"><i class="ti-more"></i>Registration Fee</a></li>
             <li><a href="{{route('monthly.fee.view')}}"><i class="ti-more"></i>Monthly Fee</a></li>
             <li><a href="{{route('exam.fee.view')}}"><i class="ti-more"></i>Exam Fee</a></li>
@@ -103,22 +118,6 @@
             {{-- <li><a href="{{route('attendance.edit')}}"><i class="ti-more"></i>Attendance Edit</a></li> --}}
           </ul>
         </li>
-        <li class="header nav-small-cap">Academy Profit</li>
-		  
-        <li class="treeview {{($prefix == '/reports'||$prefix == '/accounts')?'active':''}}">
-          <a href="#">
-            <i data-feather="dollar-sign"></i>
-            <span>Profit Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('amount.paid.view')}}"><i class="ti-more"></i>Student Paid Amount</a></li>
-            <li><a href="{{route('academy.profit.view')}}"><i class="ti-more"></i>Academy Profit Report</a></li>
-          </ul>
-        </li>
-        
       </ul>
     </section>
   </aside>
